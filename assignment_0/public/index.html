@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ترحيب باسمك! 🎉</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        input {
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            width: 200px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff7eb3;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #ff4f88;
+        }
+        .output {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>اكتب اسمك واضغط على الزر 👇</h1>
+        <input type="text" id="nameInput" placeholder="أدخل اسمك...">
+        <br>
+        <button onclick="showName()">إظهار الاسم</button>
+        <div class="output" id="outputText"></div>
+    </div>
+
+    <script>
+        function showName() {
+            let name = document.getElementById('nameInput').value.trim();
+            let output = document.getElementById('outputText');
+            if (name) {
+                output.textContent = "مرحبا " + name + " 👋";
+            } else {
+                output.textContent = "يرجى إدخال اسم أولاً! 🚀";
+            }
+        }
+
+        // تفعيل الضغط على "Enter" لإظهار الاسم
+        document.getElementById('nameInput').addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                showName();
+            }
+        });
+
+        // جعل المؤشر يذهب مباشرة إلى خانة الإدخال عند تحميل الصفحة
+        window.onload = function() {
+            document.getElementById('nameInput').focus();
+        };
+    </script>
+
+</body>
+</html>
